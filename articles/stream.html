@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="rtoot">
-<title>Authentication with rtoot • rtoot</title>
+<title>Live streaming toots • rtoot</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -21,7 +21,7 @@
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Authentication with rtoot">
+<meta property="og:title" content="Live streaming toots">
 <meta property="og:description" content="rtoot">
 <meta property="og:image" content="https://schochastics.github.io/rtoot/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -86,61 +86,60 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Authentication with rtoot</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Live streaming toots</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/schochastics/rtoot/blob/HEAD/vignettes/auth.Rmd" class="external-link"><code>vignettes/auth.Rmd</code></a></small>
-      <div class="d-none name"><code>auth.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/schochastics/rtoot/blob/HEAD/vignettes/stream.Rmd" class="external-link"><code>vignettes/stream.Rmd</code></a></small>
+      <div class="d-none name"><code>stream.Rmd</code></div>
     </div>
 
     
     
-<div class="section level2">
-<h2 id="obtain-and-use-a-token">Obtain and use a token<a class="anchor" aria-label="anchor" href="#obtain-and-use-a-token"></a>
-</h2>
-<p>When a function in <code>rtoot</code> can’t find a valid token on
-your computer, it automatically starts authentication. If you want to
-start the process manually, you can do so by calling:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://schochastics.github.io/rtoot/">rtoot</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/auth_setup.html">auth_setup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>By default, the token is stored in a directory R has determined to
-make sense for you and it is called “rtoot_token.rds”. So you do not
-need to worry about it if you are only using <code>rtoot</code> on your
-local machine and you are only using one token.</p>
-<p>If you do not change the <code>path</code> argument of
-<code><a href="../reference/auth_setup.html">auth_setup()</a></code> the tokens get stored in the location returned
-by <code>tools::R_user_dir("rtoot", "config")</code>. Look there, if you
-want to copy a token to a different computer (ideally in the directory
-returned by <code>tools::R_user_dir("rtoot", "config")</code> on the new
-machine).</p>
-<p>If you want to use multiple tokens, you should change the name of the
-file the token is saved in:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/auth_setup.html">auth_setup</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"account1"</span><span class="op">)</span></span></code></pre></div>
-<p>To use this token, you can either read it into your environment and
-provide it to each function:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">R_user_dir</a></span><span class="op">(</span><span class="st">"rtoot"</span>, <span class="st">"config"</span><span class="op">)</span>, <span class="st">"account1.rds"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/get_status.html">get_status</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"109297677620300632"</span>, instance <span class="op">=</span> <span class="st">"mastodon.social"</span>, token <span class="op">=</span> <span class="va">token</span><span class="op">)</span></span></code></pre></div>
-<p>Or you can set the default token in the options at the start of a
-session:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"rtoot_token"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">R_user_dir</a></span><span class="op">(</span><span class="st">"rtoot"</span>, <span class="st">"config"</span><span class="op">)</span>, <span class="st">"account1.rds"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://schochastics.github.io/rtoot/">"rtoot"</a></span><span class="op">)</span></span></code></pre></div>
+<p>The package allows to access three different streams of Mastodon
+data. Public timelines via <code><a href="../reference/stream_timeline.html">stream_timeline_public()</a></code>,
+timelines from a given hashtag via
+<code><a href="../reference/stream_timeline.html">stream_timeline_hashtag()</a></code> and timelines from lists via
+<code><a href="../reference/stream_timeline.html">stream_timeline_list()</a></code>.</p>
+<div class="section level2">
+<h2 id="specifying-parameters">Specifying parameters<a class="anchor" aria-label="anchor" href="#specifying-parameters"></a>
+</h2>
+<p>By default, all functions stream statuses for 30 seconds. This can be
+adjusted via the parameter <code>timeout</code>. If set to
+<code>Inf</code>, data is streamed indefinitely. The parameter
+<code>file_name</code> is used to specify to which file the data should
+be written. If non is provided, a temporary file is created. However, we
+recommend to always set this parameter explicitely.</p>
+<p>For <code><a href="../reference/stream_timeline.html">stream_timeline_public()</a></code> and
+<code><a href="../reference/stream_timeline.html">stream_timeline_hashtag()</a></code>, you can also decide if you want
+to stream globally, or from a specific instance. If you want to stream
+from a specific instance, set <code>local=TRUE</code> and set
+<code>instance</code> to the desired instance. If instance is NULL, then
+the function uses the instance you obtained a token from (see vignette
+on <a href="auth.html">authentication</a>).</p>
 </div>
 <div class="section level2">
-<h2 id="environment-variable">Environment variable<a class="anchor" aria-label="anchor" href="#environment-variable"></a>
+<h2 id="streaming-and-parsing">Streaming and parsing<a class="anchor" aria-label="anchor" href="#streaming-and-parsing"></a>
 </h2>
-<p>For advanced users, you can also store your token as an environment
-variable (envvar). You can either obtain a token by calling</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/auth_setup.html">auth_setup</a></span><span class="op">(</span>clipboard <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p>Or, if you already have a token</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">R_user_dir</a></span><span class="op">(</span><span class="st">"rtoot"</span>, <span class="st">"config"</span><span class="op">)</span>, <span class="st">"account1.rds"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">content</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/convert_token_to_envvar.html">convert_token_to_envvar</a></span><span class="op">(</span><span class="va">token</span><span class="op">)</span></span></code></pre></div>
-<p>Paste the content from clipboard to your configuration file. If you
-don’t have access to clipboard, inspect <code>content</code>.</p>
+<p>Once parameters are specified, you can start the desired stream.
+Streaming will occupy your current instance of R until the specified
+time has elapsed or any error occurs. Streaming itself shouldn’t be very
+memory intensive so you can start a new R instance in parallel.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#stream a minute of all statuses</span></span>
+<span><span class="fu"><a href="../reference/stream_timeline.html">stream_timeline_public</a></span><span class="op">(</span>timeout <span class="op">=</span> <span class="fl">60</span>, file_name <span class="op">=</span> <span class="st">"public.json"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#stream a minute of all statuses using the rstats hashtag</span></span>
+<span><span class="fu"><a href="../reference/stream_timeline.html">stream_timeline_public</a></span><span class="op">(</span>hashtag <span class="op">=</span> <span class="st">"rstats"</span>, timeout <span class="op">=</span> <span class="fl">60</span>, file_name <span class="op">=</span> <span class="st">"public.json"</span><span class="op">)</span></span></code></pre></div>
+<p>If <code>verbose=TRUE</code>, the functions will indicate when
+streaming is supposed to stop and the number of statuses that have been
+written to file.</p>
+<p>Note that in contrast to <code>rtweet</code>, the streaming functions
+never directly return any data. This can be done afterwards using
+<code><a href="../reference/parse_stream.html">parse_stream()</a></code> which reads in the json and converts it to a
+data frame. Note that this process can take a while depending on the
+number of statuses in the file.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

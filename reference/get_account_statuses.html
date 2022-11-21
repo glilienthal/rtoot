@@ -63,10 +63,18 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_account_statuses</span><span class="op">(</span></span>
 <span>  <span class="va">id</span>,</span>
+<span>  <span class="va">max_id</span>,</span>
+<span>  <span class="va">since_id</span>,</span>
+<span>  <span class="va">min_id</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">20L</span>,</span>
+<span>  exclude_reblogs <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">hashtag</span>,</span>
 <span>  instance <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  token <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  anonymous <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  parse <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  parse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  retryonratelimit <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -74,6 +82,30 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>id</dt>
 <dd><p>character, local ID of a user (this is not the username)</p></dd>
+
+
+<dt>max_id</dt>
+<dd><p>character, Return results older than this id</p></dd>
+
+
+<dt>since_id</dt>
+<dd><p>character, Return results newer than this id</p></dd>
+
+
+<dt>min_id</dt>
+<dd><p>character, Return results immediately newer than this id</p></dd>
+
+
+<dt>limit</dt>
+<dd><p>integer, Maximum number of results to return</p></dd>
+
+
+<dt>exclude_reblogs</dt>
+<dd><p>logical, Whether to filter out boosts from the response.</p></dd>
+
+
+<dt>hashtag</dt>
+<dd><p>character, filter for statuses using a specific hashtag.</p></dd>
 
 
 <dt>instance</dt>
@@ -90,6 +122,14 @@
 
 <dt>parse</dt>
 <dd><p>logical, if <code>TRUE</code>, the default, returns a tibble. Use <code>FALSE</code>  to return the "raw" list corresponding to the JSON returned from the Mastodon API.</p></dd>
+
+
+<dt>retryonratelimit</dt>
+<dd><p>If TRUE, and a rate limit is exhausted, will wait until it refreshes. Most Mastodon rate limits refresh every 5 minutes. If FALSE, and the rate limit is exceeded, the function will terminate early with a warning; you'll still get back all results received up to that point.</p></dd>
+
+
+<dt>verbose</dt>
+<dd><p>logical whether to display messages</p></dd>
 
 </dl></div>
     <div class="section level2">

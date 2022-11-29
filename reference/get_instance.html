@@ -88,7 +88,11 @@
 <span>  token <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  anonymous <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_instance_rules</span><span class="op">(</span>instance <span class="op">=</span> <span class="cn">NULL</span>, token <span class="op">=</span> <span class="cn">NULL</span>, anonymous <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_instance_blocks</span><span class="op">(</span>instance <span class="op">=</span> <span class="cn">NULL</span>, token <span class="op">=</span> <span class="cn">NULL</span>, anonymous <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -152,6 +156,12 @@
 <dt>get_instance_trends</dt>
 <dd><p>Tags that are being used more frequently within the past week</p></dd>
 
+<dt>get_instance_rules</dt>
+<dd><p>Prints the rules of an instance</p></dd>
+
+<dt>get_instance_blocks</dt>
+<dd><p>List of domains that are blocked by an instance.</p></dd>
+
 
 </dl></div>
 
@@ -162,7 +172,7 @@
 <span class="r-in"><span> <span class="fu">get_instance_activity</span><span class="op">(</span><span class="st">"mastodon.social"</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu">get_instance_emoji</span><span class="op">(</span><span class="st">"mastodon.social"</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu">get_instance_peers</span><span class="op">(</span><span class="st">"mastodon.social"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="fu">get_instance_directory</span><span class="op">(</span><span class="st">"mastodon.social"</span>,limit<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">get_instance_directory</span><span class="op">(</span><span class="st">"mastodon.social"</span>,limit <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

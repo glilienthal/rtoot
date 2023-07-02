@@ -88,6 +88,12 @@
     <loc>https://schochastics.github.io/rtoot/reference/get_instance.html</loc>
   </url>
   <url>
+    <loc>https://schochastics.github.io/rtoot/reference/get_list_accounts.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/rtoot/reference/get_lists.html</loc>
+  </url>
+  <url>
     <loc>https://schochastics.github.io/rtoot/reference/get_poll.html</loc>
   </url>
   <url>
@@ -107,6 +113,12 @@
   </url>
   <url>
     <loc>https://schochastics.github.io/rtoot/reference/parse_stream.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/rtoot/reference/post_list_accounts.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/rtoot/reference/post_list_create.html</loc>
   </url>
   <url>
     <loc>https://schochastics.github.io/rtoot/reference/post_status.html</loc>
